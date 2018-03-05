@@ -1,22 +1,18 @@
 import os
+
 from getpass import getpass
 
 from telethon.utils import get_display_name
 
 from telethon import ConnectionMode, TelegramClient
 from telethon.errors import SessionPasswordNeededError
-from telethon.tl.types import (
-    PeerChat, UpdateShortChatMessage, UpdateShortMessage
-)
+from telethon.tl import types, functions
 
 api_id = 183298
 api_hash = '70becb40db67f4a27a8dc920b80ae674'
-
 client = TelegramClient('session_name', api_id, api_hash)
-phone_number = '+85269289524'
-client.send_code_request(phone_number)
-myself = client.sign_in(phone_number, input('Enter code: '))
-client.start()
+client.start(phone = '+85269289524')
+
 
 def sprint(string, *args, **kwargs):
     """Safe Print (handle UnicodeEncodeErrors on some terminals)"""
