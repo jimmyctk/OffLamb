@@ -1,12 +1,14 @@
 import os
-
 from getpass import getpass
 
 from telethon.utils import get_display_name
-
 from telethon import ConnectionMode, TelegramClient
 from telethon.errors import SessionPasswordNeededError
-from telethon.tl import types, functions
+from telethon.tl.types import (
+    PeerChat, UpdateShortChatMessage, UpdateShortMessage
+)
+from telethon.tl.functions.messages import SendInlineBotResultRequest
+from telethon.tl.types.messages import BotCallbackAnswer
 
 api_id = 183298
 api_hash = '70becb40db67f4a27a8dc920b80ae674'
